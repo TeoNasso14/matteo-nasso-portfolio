@@ -7,7 +7,15 @@ export interface SharedColor extends Struct.ComponentSchema {
   };
   attributes: {
     color: Schema.Attribute.Enumeration<
-      ['badge-info', 'badge-success', 'badge-warning', 'badge-primary']
+      [
+        'badge-info',
+        'badge-success',
+        'badge-warning',
+        'badge-primary',
+        'badge-error',
+        'badge-accent',
+        'badge-secondary',
+      ]
     >;
   };
 }

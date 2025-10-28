@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "intros",
+  "collectionName": "educations_sections",
   "info": {
-    "singularName": "intro",
-    "pluralName": "intros",
-    "displayName": "Intro"
+    "singularName": "educations-section",
+    "pluralName": "educations-sections",
+    "displayName": "EducationsSection"
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +16,7 @@
   },
   "attributes": {
     "title": {
-      "type": "richtext",
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -24,12 +24,17 @@
       }
     },
     "description": {
-      "type": "richtext",
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
+    },
+    "educations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::education.education"
     }
   }
 }

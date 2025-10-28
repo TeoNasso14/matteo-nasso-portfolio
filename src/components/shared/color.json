@@ -11,7 +11,10 @@
         "badge-info",
         "badge-success",
         "badge-warning",
-        "badge-primary"
+        "badge-primary",
+        "badge-error",
+        "badge-accent",
+        "badge-secondary"
       ]
     }
   },

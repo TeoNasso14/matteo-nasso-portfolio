@@ -47,8 +47,9 @@
         }
       },
       "enum": [
-        "active",
-        "expired"
+        "Active",
+        "Expired",
+        "Verified"
       ]
     },
     "description": {
@@ -67,7 +68,7 @@
         }
       }
     },
-    "icon_url": {
+    "icon_color": {
       "type": "enumeration",
       "pluginOptions": {
         "i18n": {
