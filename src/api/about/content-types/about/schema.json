@@ -24,19 +24,18 @@
         }
       }
     },
-    "blocks": {
-      "type": "dynamiczone",
+    "tecnologies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tecnology.tecnology"
+    },
+    "description": {
+      "type": "richtext",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "components": [
-        "shared.media",
-        "shared.quote",
-        "shared.rich-text",
-        "shared.slider"
-      ]
+      }
     }
   }
 }
