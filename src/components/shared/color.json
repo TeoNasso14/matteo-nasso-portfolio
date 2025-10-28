@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_colors",
+  "info": {
+    "displayName": "Color"
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "badge-info",
+        "badge-success",
+        "badge-warning",
+        "badge-primary"
+      ]
+    }
+  },
+  "config": {}
+}

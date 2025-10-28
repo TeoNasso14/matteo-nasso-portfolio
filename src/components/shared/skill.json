@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_skills",
+  "info": {
+    "displayName": "Skill",
+    "icon": "rocket"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "color": {
+      "type": "component",
+      "component": "shared.color",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

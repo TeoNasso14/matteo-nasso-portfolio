@@ -577,12 +577,156 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiContactContact extends Struct.SingleTypeSchema {
-  collectionName: 'contacts';
+export interface ApiCertificationCertification
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'certifications';
   info: {
-    displayName: 'Contacts';
-    pluralName: 'contacts';
-    singularName: 'contact';
+    displayName: 'Certification';
+    pluralName: 'certifications';
+    singularName: 'certification';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    credential_url: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    date: Schema.Attribute.Date &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    icon_url: Schema.Attribute.Enumeration<
+      [
+        'from-purple-500 to-purple-600',
+        'from-teal-500 to-teal-600',
+        'from-blue-500 to-blue-600',
+        'from-orange-500 to-orange-600',
+        'from-green-500 to-green-600',
+        'from-red-500 to-red-600',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    issuer: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::certification.certification'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    skills: Schema.Attribute.Component<'shared.skill', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    status_c: Schema.Attribute.Enumeration<['active', 'expired']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    status_color: Schema.Attribute.Component<'shared.color', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCertificationsSectionCertificationsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'certifications_sections';
+  info: {
+    displayName: 'CertificationsSection';
+    pluralName: 'certifications-sections';
+    singularName: 'certifications-section';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    certifications: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::certification.certification'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::certifications-section.certifications-section'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiContactsSectionContactsSection
+  extends Struct.SingleTypeSchema {
+  collectionName: 'contacts_sections';
+  info: {
+    displayName: 'ContactsSections';
+    pluralName: 'contacts-sections';
+    singularName: 'contacts-section';
   };
   options: {
     draftAndPublish: true;
@@ -611,7 +755,7 @@ export interface ApiContactContact extends Struct.SingleTypeSchema {
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::contact.contact'
+      'api::contacts-section.contacts-section'
     >;
     phone: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
@@ -1249,7 +1393,9 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
-      'api::contact.contact': ApiContactContact;
+      'api::certification.certification': ApiCertificationCertification;
+      'api::certifications-section.certifications-section': ApiCertificationsSectionCertificationsSection;
+      'api::contacts-section.contacts-section': ApiContactsSectionContactsSection;
       'api::global.global': ApiGlobalGlobal;
       'api::social-link.social-link': ApiSocialLinkSocialLink;
       'plugin::content-releases.release': PluginContentReleasesRelease;

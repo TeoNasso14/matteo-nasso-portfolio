@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedColor extends Struct.ComponentSchema {
+  collectionName: 'components_shared_colors';
+  info: {
+    displayName: 'Color';
+  };
+  attributes: {
+    color: Schema.Attribute.Enumeration<
+      ['badge-info', 'badge-success', 'badge-warning', 'badge-primary']
+    >;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -50,6 +62,18 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSkill extends Struct.ComponentSchema {
+  collectionName: 'components_shared_skills';
+  info: {
+    displayName: 'Skill';
+    icon: 'rocket';
+  };
+  attributes: {
+    color: Schema.Attribute.Component<'shared.color', false>;
+    name: Schema.Attribute.String;
+  };
+}
+
 export interface SharedSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_sliders';
   info: {
@@ -65,10 +89,12 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.color': SharedColor;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
+      'shared.skill': SharedSkill;
       'shared.slider': SharedSlider;
     }
   }
