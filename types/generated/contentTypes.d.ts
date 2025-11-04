@@ -1066,6 +1066,12 @@ export interface ApiWorkingPlaceWorkingPlace
           localized: true;
         };
       }>;
+    end_date: Schema.Attribute.Date &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     level_description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -1092,6 +1098,12 @@ export interface ApiWorkingPlaceWorkingPlace
         };
       }>;
     skills: Schema.Attribute.Component<'shared.skill', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    start_date: Schema.Attribute.Date &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
