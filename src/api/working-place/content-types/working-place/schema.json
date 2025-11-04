@@ -23,6 +23,22 @@
         }
       }
     },
+    "start_date": {
+      "type": "date",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "end_date": {
+      "type": "date",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
     "company": {
       "type": "string",
       "pluginOptions": {
