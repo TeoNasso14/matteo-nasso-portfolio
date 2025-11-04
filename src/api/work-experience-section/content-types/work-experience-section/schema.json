@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "work_experience_sections",
+  "info": {
+    "singularName": "work-experience-section",
+    "pluralName": "work-experience-sections",
+    "displayName": "Work Experience Section"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "working_places": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::working-place.working-place",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
